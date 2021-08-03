@@ -1,39 +1,49 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
+import "./QuoteListItem.css";
 
 export default function QuoteListItem({ quote, handleDeleteQuote }) {
-	return (
-		<div className='panel panel-default'>
-			<div className='panel-heading'>
-				<blockquote className='quote-submit'>{quote.content}</blockquote>
-				<small className='source-submit'> - {quote.quotee} <span>{quote.title}</span></small>
-			</div>
-			<div className='details-button-container'>
-				<Link
-					className='details-button'
-					to={{
-						pathname: 'quotes/details',
-						state: { quote },
-					}}
-				>
-					DETAILS
-				</Link>
-				<Link
-					className='edit-button'
-					to={{
-						pathname: 'quotes/edit',
-						state: { quote },
-					}}
-				>
-					EDIT
-				</Link>
-				<button
-					className='delete-button'
-					onClick={() => handleDeleteQuote(quote._id)}
-				>
-					DELETE
-				</button>
-			</div>
-		</div>
-	);
+  return (
+    <div className="content">
+      <div className="box">
+        <blockquote className="quote-submit">{quote.content}</blockquote>
+        <small className="source-submit">
+          {" "}
+          - {quote.quotee}, <i>{quote.title}</i>
+        </small>
+        <div className="buttons has-addons is-right">
+          <button className="button is-small is-info is-light">
+            <Link
+              className="details-button"
+              to={{
+                pathname: "quotes/details",
+                state: { quote },
+              }}
+            >
+              details
+            </Link>
+          </button>
+
+          <button className="button is-small is-warning">
+            <Link
+              className="edit-button"
+              to={{
+                pathname: "quotes/edit",
+                state: { quote },
+              }}
+            >
+              edit
+            </Link>
+          </button>
+
+          <button
+            className="button is-small is-danger is-light"
+            onClick={() => handleDeleteQuote(quote._id)}
+          >
+            X
+          </button>
+        </div>
+      </div>
+    </div>
+  );
 }

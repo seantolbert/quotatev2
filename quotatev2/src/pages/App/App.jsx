@@ -8,6 +8,7 @@ import NewQuotePage from "../NewQuotePage/NewQuotePage";
 import QuotesPage from "../QuotesPage/QuotesPage";
 import QuotesDetailPage from "../QuotesDetailPage/QuotesDetailPage";
 import EditQuotesPage from "../EditQuotesPage/EditQuotesPage";
+import "../../bulma.css"
 import "./App.css";
 
 export default function App(props) {

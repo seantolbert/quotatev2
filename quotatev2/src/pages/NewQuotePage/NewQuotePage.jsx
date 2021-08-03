@@ -1,71 +1,73 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from "react";
 
 export default function NewQuotePage(props) {
-	const [invalidForm, setValidForm] = useState(true);
-	const [formData, setFormData] = useState({
-        content: '',
-		quotee: '',
-		title: ''
-	});
+  const [invalidForm, setValidForm] = useState(true);
+  const [formData, setFormData] = useState({
+    content: "",
+    quotee: "",
+    title: "",
+  });
 
-	const formRef = useRef();
+  const formRef = useRef();
 
-	useEffect(() => {
-		formRef.current.checkValidity()
-			? setValidForm(false)
-			: setValidForm(true);
-	}, [formData]);
+  useEffect(() => {
+    formRef.current.checkValidity() ? setValidForm(false) : setValidForm(true);
+  }, [formData]);
 
-	const handleSubmit = e => {
-		e.preventDefault();
-		props.handleAddQuote(formData);
-	};
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    props.handleAddQuote(formData);
+  };
 
-	const handleChange = e => {
-		setFormData({
-			...formData,
-			[e.target.name]: e.target.value,
-		});
-	};
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
 
-	return (
-		<>
-			<h1>Add Quote</h1>
-			<form autoComplete='off' ref={formRef} onSubmit={handleSubmit}>
-				<div className='form-group'>
-					<label>Quote </label>
-					<textarea
-						className='form-control'
-						placeholder='Enter New Quote Here...'
-						name='content'
-						value={formData.content}
-						onChange={handleChange}
-						required
-					/>
-				</div>
-				<div className='form-group'>
-					<label>Quoter </label>
-					<input
-						className='form-control'
-						name='quotee'
-						value={formData.quotee}
-						onChange={handleChange}
-						required
-					/>
-				</div>
-				<div className='form-group'>
-					<label>Source </label>
-					<input
-						className='form-control'
-						name='title'
-						value={formData.title}
-						onChange={handleChange}
-					/>
-				</div>
-				<button type='submit' className='btn' disabled={invalidForm}>
-					ADD
-				</button>
-			</form>
-		</>
-	);
+  return (
+    <>
+      <form autoComplete="off" ref={formRef} onSubmit={handleSubmit}>
+        <div className="block">
+          <textarea
+            className="textarea is-medium is-primary"
+            placeholder="Enter new quote here"
+            name="content"
+            value={formData.content}
+            onChange={handleChange}
+            required
+          />
+        </div>
+
+        <div className="field">
+          <label className="field-label is-normal">Source</label>
+          <div className="control">
+            <input
+              className="input is-small is-primary"
+              placeholder="Enter the name of the person who said the quote"
+              name="quotee"
+              value={formData.quotee}
+              onChange={handleChange}
+              required
+            />
+          </div>
+        </div>
+        <div className="field">
+          <p className="control">
+            <input
+              className="input is-small is-primary"
+              placeholder="Enter the title of the quote's source (book, movie, TV show, etc.)"
+              name="title"
+              value={formData.title}
+              onChange={handleChange}
+            />
+          </p>
+        </div>
+        <button type="submit" className="button is-primary" disabled={invalidForm}>
+          ADD
+        </button>
+      </form>
+    </>
+  );
 }
