@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Route, Switch, Redirect, useHistory } from "react-router-dom";
 import { getUser } from "../../utilities/users-service";
 import * as quoteAPI from "../../utilities/quotes-api";
+import * as noteAPI from "../../utilities/notes-api"
 import NavBar from "../../components/NavBar/NavBar";
 import AuthPage from "../AuthPage/AuthPage";
 import NewQuotePage from "../NewQuotePage/NewQuotePage";
@@ -14,6 +15,9 @@ import "./App.css";
 export default function App(props) {
   const [user, setUser] = useState(getUser());
   const [quotes, setQuotes] = useState([]);
+  const [notes, setNotes] = useState([])
+  const [filteredQuotes, setFilteredQuotes] = useState([])
+  
   const history = useHistory();
 
   useEffect(() => {
@@ -35,6 +39,11 @@ export default function App(props) {
   async function handleAddQuote(newQuoteData) {
     const newQuote = await quoteAPI.create(newQuoteData);
     setQuotes([...quotes, newQuote]);
+  }
+
+  async function handleAddNote(newNoteData) {
+    const newNote = await noteAPI.create(newNoteData);
+    setNotes([...notes, newNote]);
   }
 
   async function handleUpdateQuote(updatedQuoteData) {
@@ -64,7 +73,7 @@ export default function App(props) {
             <NewQuotePage handleAddQuote={handleAddQuote} />
           </Route>
           <Route exact path="/quotes/details">
-            <QuotesDetailPage />
+            <QuotesDetailPage handleAddNote={handleAddNote}/>
           </Route>
           <Route exact path="/quotes/edit">
             <EditQuotesPage handleUpdateQuote={handleUpdateQuote} />

@@ -10,6 +10,7 @@ require("dotenv").config();
 require("./config/database");
 
 const quotesRouter = require("./routes/api/quotes");
+const notesRouter = require("./routes/api/notes")
 
 const app = express();
 
@@ -25,6 +26,7 @@ app.use(require("./config/checkToken"));
 // Put API routes here, before the "catch all" route
 app.use("/api/users", require("./routes/api/users"));
 app.use("/api/quotes", quotesRouter);
+app.use("/api/quotes/details", notesRouter)
 
 // The following "catch all" route (note the *) is necessary
 // to return the index.html on all non-AJAX requests

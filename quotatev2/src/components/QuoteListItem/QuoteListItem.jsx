@@ -7,14 +7,13 @@ export default function QuoteListItem({ quote, handleDeleteQuote }) {
     <div className="content">
       <div className="box">
         <blockquote className="quote-submit">{quote.content}</blockquote>
-        <small className="source-submit">
+        <small>
           {" "}
           - {quote.quotee}, <i>{quote.title}</i>
         </small>
         <div className="buttons has-addons is-right">
           <button className="button is-small is-info is-light">
             <Link
-              className="details-button"
               to={{
                 pathname: "quotes/details",
                 state: { quote },
