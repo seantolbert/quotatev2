@@ -62,7 +62,7 @@ export default function App(props) {
   }
 
   return (
-    <main className="App">
+    <main className="main">
       {user ? (
         <>
           <NavBar user={user} setUser={setUser} />
