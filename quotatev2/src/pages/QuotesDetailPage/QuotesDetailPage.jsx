@@ -27,19 +27,6 @@ export default function QuoteDetailPage(props) {
   return (
     <>
       <QuoteCard className=""  quote={quote} key={quote._id} />
-      {/* <form autoComplete="off" ref={formData} onSubmit={handleSubmit}>
-        <input
-          className="textarea is-medium is-primary"
-          name="note"
-          value={formData.note}
-          onChange={handleChange}
-          placeholder
-          type="text"
-        />
-        <button type="submit" className="button is-primary">
-          ADD
-        </button>
-      </form> */}
     </>
   );
 }

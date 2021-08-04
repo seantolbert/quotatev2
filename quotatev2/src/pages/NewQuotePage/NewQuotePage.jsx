@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import "./NewQuotePage.css";
 
 export default function NewQuotePage(props) {
   const [invalidForm, setValidForm] = useState(true);
@@ -41,7 +42,6 @@ export default function NewQuotePage(props) {
         </div>
 
         <div className="field">
-          <label className="field-label is-normal">Source</label>
           <div className="control">
             <input
               className="input is-small is-primary"
@@ -49,12 +49,11 @@ export default function NewQuotePage(props) {
               name="quotee"
               value={formData.quotee}
               onChange={handleChange}
-              required
             />
           </div>
         </div>
         <div className="field">
-          <p className="control">
+          <div className="control">
             <input
               className="input is-small is-primary"
               placeholder="Enter the title of the quote's source (book, movie, TV show, etc.)"
@@ -62,9 +61,13 @@ export default function NewQuotePage(props) {
               value={formData.title}
               onChange={handleChange}
             />
-          </p>
+          </div>
         </div>
-        <button type="submit" className="button is-primary" disabled={invalidForm}>
+        <button
+          type="submit"
+          className="button is-primary"
+          disabled={invalidForm}
+        >
           ADD
         </button>
       </form>

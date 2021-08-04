@@ -1,0 +1,13 @@
+a.edit-button-text  {
+    color: black;
+}
+
+a.details-button-text {
+    color: black;
+}
+
+blockquote {
+    color: #515C59;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.1em;
+}

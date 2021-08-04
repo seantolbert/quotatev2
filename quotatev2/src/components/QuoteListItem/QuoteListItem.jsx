@@ -5,15 +5,18 @@ import "./QuoteListItem.css";
 export default function QuoteListItem({ quote, handleDeleteQuote }) {
   return (
     <div className="content">
-      <div className="box">
-        <blockquote className="quote-submit">{quote.content}</blockquote>
-        <small>
+      <div className="notification is-info is-light">
+        <button className="delete" onClick={() => handleDeleteQuote(quote._id)}>
+          X
+        </button>
+        <blockquote className="quote-submit">{`"${quote.content}"`}</blockquote>
+        <p>
           {" "}
-          - {quote.quotee}, <i>{quote.title}</i>
-        </small>
+          - {quote.quotee} <i>{quote.title}</i>
+        </p>
         <div className="buttons has-addons is-right">
-          <button className="button is-small is-info is-light">
-            <Link
+          <button className="button is-info is-light">
+            <Link className="details-button-text"
               to={{
                 pathname: "quotes/details",
                 state: { quote },
@@ -23,9 +26,9 @@ export default function QuoteListItem({ quote, handleDeleteQuote }) {
             </Link>
           </button>
 
-          <button className="button is-small is-warning">
+          <button className="button is-warning">
             <Link
-              className="edit-button"
+              className="edit-button-text"
               to={{
                 pathname: "quotes/edit",
                 state: { quote },
@@ -33,13 +36,6 @@ export default function QuoteListItem({ quote, handleDeleteQuote }) {
             >
               edit
             </Link>
-          </button>
-
-          <button
-            className="button is-small is-danger is-light"
-            onClick={() => handleDeleteQuote(quote._id)}
-          >
-            X
           </button>
         </div>
       </div>
