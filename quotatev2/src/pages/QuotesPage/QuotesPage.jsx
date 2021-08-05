@@ -1,3 +1,4 @@
+import { filter } from "domutils";
 import React, { useState, useRef, useEffect } from "react";
 import QuoteListItem from "../../components/QuoteListItem/QuoteListItem";
 
@@ -11,13 +12,11 @@ export default function QuotesPage(props) {
     setFilterData(e.target.value);
   };
   
-  const handleClick = (filterData) => {
-    filteredQuotesRef.current = props.quotes.filter((quote) => {
-      quote.content.includes(filterData);
-      console.log("quote", quote.content);
-      console.log(`filterData`, filterData);
-    });
-    return filteredQuotesRef.current
+  const handleClick = () => {
+    console.log(filteredQuotesRef.current)
+    filteredQuotesRef.current = props.quotes.filter((quote) => quote.content.includes(filterData));
+    console.log(filteredQuotesRef.current)
+    // console.log(filteredArray)
   };
 
   return (

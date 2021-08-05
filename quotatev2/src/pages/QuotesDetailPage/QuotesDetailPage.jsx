@@ -3,7 +3,6 @@ import { useLocation } from "react-router-dom";
 import QuoteCard from "../../components/QuoteCard/QuoteCard";
 
 export default function QuoteDetailPage(props) {
-  const [invalidForm, setValidForm] = useState(true);
   const [formData, setFormData] = useState({
     note: "",
   });

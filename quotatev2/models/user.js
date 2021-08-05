@@ -1,12 +1,10 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-// add the bcrypt library
 const bcrypt = require("bcrypt");
 
 const SALT_ROUNDS = 6;
 
-// 6 is a reasonable value for saltrounds
 
 const userSchema = new Schema(
   {

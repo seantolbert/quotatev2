@@ -21,17 +21,13 @@ export default function App(props) {
 
   useEffect(() => {
     async function getQuotes() {
-      // retrieve the quotes data
       const quotes = await quoteAPI.getAll();
-      // set it to state
       setQuotes(quotes);
     }
     getQuotes();
   }, []);
 
   useEffect(() => {
-    // This is listenting for each time puppies state is changed,
-    // then will run our function below to reroute
     history.push("/quotes");
   }, [quotes, history]);
 
@@ -46,9 +42,7 @@ export default function App(props) {
   }
 
   async function handleUpdateQuote(updatedQuoteData) {
-    // invoke the fetch call from api services
     const updatedQuote = await quoteAPI.update(updatedQuoteData);
-    // set the new state using the result from the fetch call
     const newQuotesArray = quotes.map((q) =>
       q._id === updatedQuote._id ? updatedQuote : q
     );

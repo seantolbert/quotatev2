@@ -25,3 +25,4 @@ export function deleteOne(id) {
 		method: 'DELETE',
 	}).then(res => res.json());
 }
+

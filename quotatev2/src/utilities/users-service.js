@@ -12,12 +12,8 @@ export async function signUp(userData) {
 
 export async function login(credentials) {
   try {
-    // delegate the network request code to the users-api.js API module
-    // this will ultimately return a json web token (JTW)
     const token = await usersAPI.login(credentials);
-    // Persist the token
     localStorage.setItem("token", token);
-    //console by returning whatever is sent back to the server
     return getUser();
   } catch {
     throw new Error("Invalid Sign Up");

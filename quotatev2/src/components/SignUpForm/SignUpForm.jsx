@@ -10,7 +10,6 @@ export default class SignUpForm extends Component {
     error: "",
   };
 
-  // The object passed to setState is merged with the current state object
   handleChange = (evt) => {
     this.setState({
       [evt.target.name]: evt.target.value,
@@ -21,8 +20,6 @@ export default class SignUpForm extends Component {
   handleSubmit = async (evt) => {
     evt.preventDefault();
     try {
-      // We don't want to send the 'error' or 'confirm' property,
-      //  so let's make a copy of the state object, then delete them
       const formData = { ...this.state };
       delete formData.error;
       delete formData.confirm;

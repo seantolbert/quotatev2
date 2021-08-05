@@ -9,7 +9,7 @@ export default function QuoteListItem({ quote, handleDeleteQuote }) {
         <button className="delete" onClick={() => handleDeleteQuote(quote._id)}>
           X
         </button>
-        <blockquote className="quote-submit">{`"${quote.content}"`}</blockquote>
+        <blockquote className="quote-submit">{`" ${quote.content} "`}</blockquote>
         <p>
           {" "}
           - {quote.quotee} <i>{quote.title}</i>
