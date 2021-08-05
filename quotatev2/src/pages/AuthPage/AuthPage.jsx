@@ -27,6 +27,15 @@ export default function AuthPage({ setUser }) {
           </div>
         </nav>
       </div>
+<div className="block">
+
+      <section className="hero is-success">
+        <div className="hero-body">
+          <p className="title">Welcome to Quotate</p>
+          <p className="subtitle">your personal diary for what you find profound</p>
+        </div>
+      </section>
+</div>
 
       {showLogin ? (
         <LoginForm setUser={setUser} />

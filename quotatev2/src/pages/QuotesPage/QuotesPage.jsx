@@ -22,33 +22,47 @@ export default function QuotesPage(props) {
 
   return (
     <>
-      <div className="container is-fluid">
-        <div className="field has-addons has-addons-right">
-          <div className="control">
-            <input
-              className="input"
-              type="text"
-              placeholder="find quotes"
-              name="filterData"
-              value={filterData}
-              onChange={handleChange}
-            />
+      <div className="block">
+        <section className="hero is-primary">
+          <div className="hero-body">
+            <div className="level">
+              <div className="level-left">
+                <div className="level-item">
+                  <p className="title">All Quotes</p>
+                </div>
+              </div>
+              <div className="level-right">
+                <div className="field has-addons has-addons-right">
+                  <div className="control">
+                    <input
+                      className="input"
+                      type="text"
+                      placeholder="find quotes"
+                      name="filterData"
+                      value={filterData}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div className="control">
+                    <button className="button is-info" onClick={handleClick}>
+                      Filter
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="control">
-            <button className="button is-info" onClick={handleClick}>
-              Filter
-            </button>
-          </div>
-        </div>
-        <div className="QuoteListPage-grid">
-          {filteredQuotesRef.current.map((quote) => (
-            <QuoteListItem
-              quote={quote}
-              key={quote._id}
-              handleDeleteQuote={props.handleDeleteQuote}
-            />
-          ))}
-        </div>
+        </section>
+      </div>
+
+      <div className="QuoteListPage-grid">
+        {filteredQuotesRef.current.map((quote) => (
+          <QuoteListItem
+            quote={quote}
+            key={quote._id}
+            handleDeleteQuote={props.handleDeleteQuote}
+          />
+        ))}
       </div>
     </>
   );

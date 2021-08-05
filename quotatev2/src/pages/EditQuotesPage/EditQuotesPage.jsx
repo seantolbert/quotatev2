@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
+import "./EditQuotePage.css";
 
 export default function EditQuotePage(props) {
   const location = useLocation();
@@ -28,9 +29,14 @@ export default function EditQuotePage(props) {
   return (
     <div>
       <div className="block">
-        <div className="container is-fluid">
-          <h1 className="title">Edit Quote</h1>
-        </div>
+        <section className="hero is-warning">
+          <div className="hero-body">
+            <div className="container is-fluid">
+              <p className="title">Edit Quote</p>
+              <p className="subtitle">everybody makes mistakes</p>
+            </div>
+          </div>
+        </section>
       </div>
       <div className="container is-fluid">
         <div className="box">
@@ -72,12 +78,14 @@ export default function EditQuotePage(props) {
               </div>
               <div className="container is-fluid">
                 <div className="column">
-                  <div className="buttons is-grouped">
+                  <div className="buttons has-addons">
                     <button type="submit" className="button is-primary">
-                      SAVE
+                      save
                     </button>
                     <button className="button is-danger">
-                      <Link to="/quotes">CANCEL</Link>
+                      <Link className="cancel-button-text" to="/quotes">
+                        cancel
+                      </Link>
                     </button>
                   </div>
                 </div>

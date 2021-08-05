@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import "./NewQuotePage.css";
+import { Link } from "react-router-dom";
 
 export default function NewQuotePage(props) {
   const [invalidForm, setValidForm] = useState(true);
@@ -30,9 +30,16 @@ export default function NewQuotePage(props) {
   return (
     <div>
       <div className="block">
-        <div className="container is-fluid">
-          <h2 className="title">New Quote</h2>
-        </div>
+        <section className="hero is-info">
+          <div className="hero-body">
+            <div className="container is-fluid">
+              <p className="title">New Quote</p>
+              <p className="subtitle">
+                hear something worth writing down recently?
+              </p>
+            </div>
+          </div>
+        </section>
       </div>
       <div className="container is-fluid">
         <div className="box">
@@ -74,13 +81,20 @@ export default function NewQuotePage(props) {
               </div>
               <div className="container is-fluid">
                 <div className="column">
-                  <button
-                    type="submit"
-                    className="button is-primary"
-                    disabled={invalidForm}
-                  >
-                    ADD
-                  </button>
+                  <div className="buttons has-addons">
+                    <button
+                      type="submit"
+                      className="button is-primary"
+                      disabled={invalidForm}
+                    >
+                      add
+                    </button>
+                    <button className="button is-danger">
+                      <Link className="cancel-button-text" to="/quotes">
+                        cancel
+                      </Link>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
