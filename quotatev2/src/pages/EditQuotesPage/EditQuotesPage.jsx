@@ -27,50 +27,57 @@ export default function EditQuotePage(props) {
 
   return (
     <>
-      <h1>Edit Quote</h1>
       <form ref={formRef} autoComplete="off" onSubmit={handleSubmit}>
-        <div className="block">
-          <textarea
-            className="textarea is-medium is-warning"
-            name="content"
-            value={formData.content}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="field">
-          <div className="control">
-            <input
-              className="input is-small is-warning"
-              name="quotee"
-              value={formData.quotee}
-              onChange={handleChange}
-              required
-            />
+        <div className="box">
+          <div className="columns is-multiline is-mobile is-center">
+            <div className="container is-fluid">
+              <h1 className="title">Edit Quote</h1>
+              <div className="column is-three-quarters is-center">
+                <textarea
+                  className="textarea is-medium is-info"
+                  name="content"
+                  value={formData.content}
+                  onChange={handleChange}
+                  required
+                  placeholder="Enter new quote here"
+                />
+              </div>
+            </div>
+            <div className="container is-fluid">
+              <div className="column is-three-quarters">
+                <input
+                  className="input is-small is-info"
+                  name="quotee"
+                  value={formData.quotee}
+                  onChange={handleChange}
+                  placeholder="Enter the name of the person who said the quote"
+                />
+              </div>
+            </div>
+            <div className="container is-fluid">
+              <div className="column is-three-quarters">
+                <input
+                  className="input is-small is-info"
+                  name="title"
+                  value={formData.title}
+                  onChange={handleChange}
+                  placeholder="Enter the title of the quote's source (book, movie, TV show, etc.)"
+                />
+              </div>
+            </div>
+            <div className="container is-fluid">
+              <div className="column">
+                <div className="buttons is-grouped">
+                  <button type="submit" className="button is-primary">
+                    SAVE
+                  </button>
+                  <button className="button is-danger">
+                    <Link to="/quotes">CANCEL</Link>
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div className="field">
-          <div className="control">
-            <input
-              className="input is-small is-warning"
-              name="title"
-              value={formData.title}
-              onChange={handleChange}
-              required
-            />
-          </div>
-        </div>
-        <div className='buttons is-grouped'>
-          <button
-            type="submit"
-            className="button is-success"
-            disabled={invalidForm}
-          >
-            SAVE
-          </button>
-          <button className="button is-danger">
-            <Link to="/quotes">CANCEL</Link>
-          </button>
         </div>
       </form>
     </>

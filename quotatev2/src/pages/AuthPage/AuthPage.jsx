@@ -6,25 +6,27 @@ export default function AuthPage({ setUser }) {
   const [showLogin, setShowLogin] = useState(true);
   return (
     <main>
-      <nav className="navbar is-black">
-        <div className="navbar-item">
-          <div className="title">
-            <b className="quotate">Quotate</b>
-          </div>
-        </div>
-        <div className="navbar-menu">
-          <div className="navbar-end">
-            <div className="navbar-item">
-              <button
-                className="button is-primary"
-                onClick={() => setShowLogin(!showLogin)}
-              >
-                {showLogin ? "SignUp" : "LOG IN"}
-              </button>
+      <div className="block">
+        <nav className="navbar is-black">
+          <div className="navbar-item">
+            <div className="title">
+              <b className="quotate">Quotate</b>
             </div>
           </div>
-        </div>
-      </nav>
+          <div className="navbar-menu">
+            <div className="navbar-end">
+              <div className="navbar-item">
+                <button
+                  className="button is-primary"
+                  onClick={() => setShowLogin(!showLogin)}
+                >
+                  {showLogin ? "SignUp" : "LOG IN"}
+                </button>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
 
       {showLogin ? (
         <LoginForm setUser={setUser} />

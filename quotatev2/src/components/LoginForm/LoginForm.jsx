@@ -24,14 +24,15 @@ export default function LogIn({ setUser }) {
   }
 
   return (
-    <div>
+    <div className="container is-fluid">
+      <h2 className="title">Log In</h2>
       <div onSubmit={handleSubmit}>
         <form autoComplete="off" className="box">
           <div className="field">
             <label className="label">Email</label>
             <div className="control">
               <input
-                className="input"
+                className="input is-primary is-rounded"
                 type="email"
                 name="email"
                 value={credentials.email}
@@ -44,7 +45,7 @@ export default function LogIn({ setUser }) {
             <label className="label">Password</label>
             <div className="control">
               <input
-                className="input"
+                className="input is-primary is-rounded"
                 type="password"
                 name="password"
                 value={credentials.password}

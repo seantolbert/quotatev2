@@ -34,13 +34,14 @@ export default class SignUpForm extends Component {
     const disable = this.state.password !== this.state.confirm;
     return (
       <div>
-        <div className="form-container">
+        <div className="container is-fluid">
+          <h2 className="title">Sign Up</h2>
           <form className="box" autoComplete="off" onSubmit={this.handleSubmit}>
             <div className="field">
               <label className="label">Name</label>
               <div className="control">
                 <input
-                  className="input"
+                  className="input is-success is-rounded"
                   type="text"
                   name="name"
                   value={this.state.name}
@@ -53,7 +54,7 @@ export default class SignUpForm extends Component {
               <label className="label">Email</label>
               <div className="control">
                 <input
-                  className="input"
+                  className="input is-success is-rounded"
                   type="email"
                   name="email"
                   value={this.state.email}
@@ -66,7 +67,7 @@ export default class SignUpForm extends Component {
               <label className="label">Password</label>
               <div className="control">
                 <input
-                  className="input"
+                  className="input is-success is-rounded"
                   type="password"
                   name="password"
                   value={this.state.password}
@@ -79,7 +80,7 @@ export default class SignUpForm extends Component {
               <label className="label">Confirm</label>
               <div className="control">
                 <input
-                  className="input"
+                  className="input is-success is-rounded"
                   type="password"
                   name="confirm"
                   value={this.state.confirm}

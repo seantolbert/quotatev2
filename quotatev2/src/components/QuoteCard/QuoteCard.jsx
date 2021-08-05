@@ -1,31 +1,36 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import './QuoteCard.css'
 
 export default function QuoteCard({ quote }) {
   return (
-    <div className="content">
-      <div className="box">
-        <blockquote>{quote.content}</blockquote>
-        <small>
-          - {quote.quotee} {`(${quote.title})`}
-        </small>
-      </div>
-      <button className="button">
-        <Link
-          className="btn btn-xs btn-warning"
-          to={{
-            pathname: "/quotes/edit",
-            state: { quote },
-          }}
-        >
-          EDIT
-        </Link>
-      </button>
-      <button className="button">
-        <div className="panel-footer">
-          <Link to="/quotes">RETURN TO QUOTES</Link>
+    <div className="container is-fluid">
+      <div className="content">
+        <div className="box">
+          <blockquote>{quote.content}</blockquote>
+          <small>
+            - {quote.quotee} <i>{quote.title}</i>
+          </small>
         </div>
-      </button>
+        <div className="buttons has-addons">
+          <button className="button is-warning">
+            <Link
+              className="edit-button-text"
+              to={{
+                pathname: "/quotes/edit",
+                state: { quote },
+              }}
+            >
+              edit
+            </Link>
+          </button>
+          <button className="button is-link">
+            <Link className="return-button-text" to="/quotes">
+              Return to Quotes
+            </Link>
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

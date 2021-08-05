@@ -36,7 +36,7 @@ export default function NavBar({ user, setUser }) {
             </div>
             <div className="navbar-item">
               <button className="button">
-                <Link to="" onClick={handleLogOut} className="logout">
+                <Link onClick={handleLogOut} className="logout">
                   Log Out
                 </Link>
               </button>
