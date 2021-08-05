@@ -15,7 +15,7 @@ export default function QuoteListItem({ quote, handleDeleteQuote }) {
           - {quote.quotee} <i>{quote.title}</i>
         </p>
         <div className="buttons has-addons is-right">
-          <button className="button is-info is-light">
+          <button className="button is-link">
             <Link className="details-button-text"
               to={{
                 pathname: "quotes/details",

@@ -16,7 +16,6 @@ export default function App(props) {
   const [user, setUser] = useState(getUser());
   const [quotes, setQuotes] = useState([]);
   const [notes, setNotes] = useState([])
-  const [filteredQuotes, setFilteredQuotes] = useState([])
   
   const history = useHistory();
 

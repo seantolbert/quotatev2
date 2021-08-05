@@ -1,4 +1,4 @@
-const BASE_URL = '/api/quotes/details'
+const BASE_URL = '/api/quotes'
 
 export function create(newNoteData) {
 	return fetch(BASE_URL, {
