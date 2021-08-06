@@ -4,7 +4,6 @@ import LoginForm from "../../components/LoginForm/LoginForm";
 
 export default function AuthPage({ setUser }) {
   const [showLogin, setShowLogin] = useState(true);
-  const [isActive, setisActive] = useState(false);
   return (
     <main>
       <div className="block">
@@ -12,19 +11,6 @@ export default function AuthPage({ setUser }) {
           <div className="navbar-item">
             <div className="title">
               <b className="quotate">Quotate</b>
-            </div>
-          </div>
-
-          <div className="navbar-menu">
-            <div className="navbar-end">
-              <div className="navbar-item">
-                <button
-                  className="button is-primary"
-                  onClick={() => setShowLogin(!showLogin)}
-                >
-                  {showLogin ? "Sign Up" : "Log In"}
-                </button>
-              </div>
             </div>
           </div>
         </nav>
@@ -38,6 +24,21 @@ export default function AuthPage({ setUser }) {
             </p>
           </div>
         </section>
+      </div>
+      <div className="block">
+        <div className="container is-fluid">
+          <button
+            className="button is-large is-primary"
+            onClick={() => setShowLogin(!showLogin)}
+          >
+            {showLogin ? "Sign Up" : "Log In"}
+          </button>
+        </div>
+      </div>
+      <div className="block">
+        <div className="container is-fluid">
+          <p className="title is-4">or</p>
+        </div>
       </div>
 
       {showLogin ? (

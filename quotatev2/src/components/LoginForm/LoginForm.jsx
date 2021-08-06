@@ -2,6 +2,7 @@ import { useState } from "react";
 import * as usersService from "../../utilities/users-service";
 
 export default function LogIn({ setUser }) {
+  const [showLogin, setShowLogin] = useState(true);
   const [credentials, setCredentials] = useState({
     email: "",
     password: "",
@@ -26,6 +27,7 @@ export default function LogIn({ setUser }) {
   return (
     <div className="container is-fluid">
       <h2 className="title">Log In</h2>
+
       <div onSubmit={handleSubmit}>
         <form autoComplete="off" className="box">
           <div className="field">
@@ -54,7 +56,9 @@ export default function LogIn({ setUser }) {
               />
             </div>
           </div>
-          <button className="button is-primary" type="submit">LOG IN</button>
+          <button className="button is-primary" type="submit">
+            LOG IN
+          </button>
         </form>
         <p className="error-message">&nbsp;{error}</p>
       </div>
