@@ -3,7 +3,11 @@
 }
 
 a.item {
-    color: white;;
+    color: black;;
+}
+
+a.item-desktop {
+    color: white;
 }
 
 a.logout {

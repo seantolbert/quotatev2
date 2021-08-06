@@ -23,6 +23,7 @@ export default function QuotesPage(props) {
                   <p className="title">All Quotes</p>
                 </div>
               </div>
+              
               <div className="level-right">
                 <div className="field has-addons has-addons-right">
                   <div className="control">

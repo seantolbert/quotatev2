@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
-import "./EditQuotePage.css";
+import "./EditQuotesPage.css";
 
 export default function EditQuotePage(props) {
   const location = useLocation();
