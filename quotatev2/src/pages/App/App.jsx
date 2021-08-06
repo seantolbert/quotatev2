@@ -1,23 +1,39 @@
 import React, { useState, useEffect } from "react";
-import { Route, Switch, Redirect, useHistory } from "react-router-dom";
+import { Route, useHistory } from "react-router-dom";
 import { getUser } from "../../utilities/users-service";
 import * as quoteAPI from "../../utilities/quotes-api";
-import * as noteAPI from "../../utilities/notes-api"
 import NavBar from "../../components/NavBar/NavBar";
 import AuthPage from "../AuthPage/AuthPage";
 import NewQuotePage from "../NewQuotePage/NewQuotePage";
 import QuotesPage from "../QuotesPage/QuotesPage";
 import QuotesDetailPage from "../QuotesDetailPage/QuotesDetailPage";
 import EditQuotesPage from "../EditQuotesPage/EditQuotesPage";
-import "../../bulma.css"
-import "./App.css";
-
+import "../../bulma.css";
 export default function App(props) {
   const [user, setUser] = useState(getUser());
   const [quotes, setQuotes] = useState([]);
-  const [notes, setNotes] = useState([])
-  
+  // const [filterData, setFilterData] = useState("");
+  // const [filteredQuotes, setFilteredQuotes] = useState(quotes);
+
   const history = useHistory();
+
+  // const handleChange = (e) => {
+  //   console.log('handleChange event', e)
+  //   console.log('target.value', e.target.value)
+  //   setFilterData(e.target.value);
+  // };
+
+  // const handleFilter = () => {
+  //   console.log(filteredQuotes);
+  //   if (!filterData) {
+  //     setFilteredQuotes(quotes);
+  //   } else {
+  //     const updatedQuotesList = setFilteredQuotes(
+  //       quotes.filter((quote) => quote.content.includes(filterData))
+  //     );
+  //     setFilteredQuotes(updatedQuotesList);
+  //   }
+  // };
 
   useEffect(() => {
     async function getQuotes() {
@@ -34,11 +50,6 @@ export default function App(props) {
   async function handleAddQuote(newQuoteData) {
     const newQuote = await quoteAPI.create(newQuoteData);
     setQuotes([...quotes, newQuote]);
-  }
-
-  async function handleAddNote(newNoteData) {
-    const newNote = await noteAPI.create(newNoteData);
-    setNotes([...notes, newNote]);
   }
 
   async function handleUpdateQuote(updatedQuoteData) {
@@ -60,13 +71,20 @@ export default function App(props) {
         <>
           <NavBar user={user} setUser={setUser} />
           <Route exact path="/quotes">
-            <QuotesPage quotes={quotes} handleDeleteQuote={handleDeleteQuote} />
+            <QuotesPage
+              quotes={quotes}
+              handleDeleteQuote={handleDeleteQuote}
+              // handleFilter={handleFilter}
+              // handleChange={handleChange}
+              // filterData={filterData}
+              // filteredQuotes={filteredQuotes}
+            />
           </Route>
           <Route exact path="/quotes/new">
             <NewQuotePage handleAddQuote={handleAddQuote} />
           </Route>
           <Route exact path="/quotes/details">
-            <QuotesDetailPage handleAddNote={handleAddNote}/>
+            <QuotesDetailPage />
           </Route>
           <Route exact path="/quotes/edit">
             <EditQuotesPage handleUpdateQuote={handleUpdateQuote} />

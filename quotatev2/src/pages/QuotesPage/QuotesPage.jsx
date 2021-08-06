@@ -1,24 +1,16 @@
-import { filter } from "domutils";
-import React, { useState, useRef, useEffect } from "react";
 import QuoteListItem from "../../components/QuoteListItem/QuoteListItem";
 
 export default function QuotesPage(props) {
-  const [filterData, setFilterData] = useState("");
+  // const handleClick = () => {
+  //   props.handleFilter();
+  // };
 
-  const filteredQuotesRef = useRef();
-  filteredQuotesRef.current = props.quotes;
-
-  const handleChange = (e) => {
-    setFilterData(e.target.value);
-  };
-
-  const handleClick = () => {
-    console.log(filteredQuotesRef.current);
-    filteredQuotesRef.current = props.quotes.filter((quote) =>
-      quote.content.includes(filterData)
-    );
-    console.log(filteredQuotesRef.current);
-  };
+  // let finalQuotes 
+  // if (props.filterData) {
+  //   finalQuotes = props.filteredQuotes
+  // } else {
+  //   finalQuotes = props.quotes
+  // }
 
   return (
     <>
@@ -39,12 +31,12 @@ export default function QuotesPage(props) {
                       type="text"
                       placeholder="find quotes"
                       name="filterData"
-                      value={filterData}
-                      onChange={handleChange}
+                      // value={props.filterData}
+                      // onChange={props.handleChange}
                     />
                   </div>
                   <div className="control">
-                    <button className="button is-info" onClick={handleClick}>
+                    <button className="button is-info" >
                       Filter
                     </button>
                   </div>
@@ -56,7 +48,7 @@ export default function QuotesPage(props) {
       </div>
 
       <div className="QuoteListPage-grid">
-        {filteredQuotesRef.current.map((quote) => (
+        {props.quotes.map((quote) => (
           <QuoteListItem
             quote={quote}
             key={quote._id}

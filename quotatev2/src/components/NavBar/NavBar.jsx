@@ -24,7 +24,13 @@ export default function NavBar({ user, setUser }) {
               <b className="quotate">Quotate</b>
             </div>
           </div>
-          <div></div>
+          {/* <a onClick{() => {
+            setIsActive(!isActive);
+          }}
+          role="button"
+          className="{navbar-burger burger ${isactive}}">
+
+          </a> */}
         </div>
         <div className="navbar-menu">
           <div className="navbar-end">
