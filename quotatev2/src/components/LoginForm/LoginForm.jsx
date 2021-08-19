@@ -2,7 +2,6 @@ import { useState } from "react";
 import * as usersService from "../../utilities/users-service";
 
 export default function LogIn({ setUser }) {
-  const [showLogin, setShowLogin] = useState(true);
   const [credentials, setCredentials] = useState({
     email: "",
     password: "",

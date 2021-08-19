@@ -13,27 +13,12 @@ export default function App(props) {
   const [user, setUser] = useState(getUser());
   const [quotes, setQuotes] = useState([]);
   // const [filterData, setFilterData] = useState("");
-  // const [filteredQuotes, setFilteredQuotes] = useState(quotes);
 
   const history = useHistory();
 
-  // const handleChange = (e) => {
-  //   console.log('handleChange event', e)
-  //   console.log('target.value', e.target.value)
-  //   setFilterData(e.target.value);
-  // };
+  
 
-  // const handleFilter = () => {
-  //   console.log(filteredQuotes);
-  //   if (!filterData) {
-  //     setFilteredQuotes(quotes);
-  //   } else {
-  //     const updatedQuotesList = setFilteredQuotes(
-  //       quotes.filter((quote) => quote.content.includes(filterData))
-  //     );
-  //     setFilteredQuotes(updatedQuotesList);
-  //   }
-  // };
+  
 
   useEffect(() => {
     async function getQuotes() {
@@ -74,10 +59,6 @@ export default function App(props) {
             <QuotesPage
               quotes={quotes}
               handleDeleteQuote={handleDeleteQuote}
-              // handleFilter={handleFilter}
-              // handleChange={handleChange}
-              // filterData={filterData}
-              // filteredQuotes={filteredQuotes}
             />
           </Route>
           <Route exact path="/quotes/new">

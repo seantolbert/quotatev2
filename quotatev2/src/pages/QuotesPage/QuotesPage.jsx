@@ -1,16 +1,31 @@
 import QuoteListItem from "../../components/QuoteListItem/QuoteListItem";
+import {useState} from 'react'
 
 export default function QuotesPage(props) {
-  // const handleClick = () => {
-  //   props.handleFilter();
-  // };
+  const [filterData, setFilterData] = useState('');
+  const [filteredQuotes, setFilteredQuotes] = useState(props.quotes);
 
-  // let finalQuotes 
-  // if (props.filterData) {
-  //   finalQuotes = props.filteredQuotes
-  // } else {
-  //   finalQuotes = props.quotes
-  // }
+  const handleClick = () => {
+    props.handleFilter();
+  };
+
+  const handleFilter = () => {
+    console.log(filteredQuotes);
+    if (!filterData) {
+      setFilteredQuotes(props.quotes);
+    } else {
+      const updatedQuotesList = setFilteredQuotes(
+        props.quotes.filter((quote) => quote.content.includes(filterData))
+      );
+      setFilteredQuotes(updatedQuotesList);
+    }
+  };
+
+  const handleChange = (e) => {
+    console.log('handleChange event', e)
+    console.log('target.value', e.target.value)
+    setFilterData(e.target.value);
+  };
 
   return (
     <>
@@ -32,12 +47,12 @@ export default function QuotesPage(props) {
                       type="text"
                       placeholder="find quotes"
                       name="filterData"
-                      // value={props.filterData}
-                      // onChange={props.handleChange}
+                      value={filterData}
+                      onChange={handleChange}
                     />
                   </div>
                   <div className="control">
-                    <button className="button is-info" >
+                    <button className="button is-info" onClick={handleClick}>
                       Filter
                     </button>
                   </div>

@@ -1,18 +1,13 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./EditQuotesPage.css";
 
 export default function EditQuotePage(props) {
   const location = useLocation();
 
-  const [invalidForm, setValidForm] = useState(true);
   const [formData, setFormData] = useState(location.state.quote);
 
   const formRef = useRef();
-
-  useEffect(() => {
-    formRef.current.checkValidity() ? setValidForm(false) : setValidForm(true);
-  }, [formData]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
